@@ -1,5 +1,5 @@
 export enum DiscountOffers {
-    NoDisccount = "No Discount",
-    Discount10 = "10%",
-    Discount15 = "15%"
+    NoDiscount = "No Discount",
+    Discount10 = 0.10,
+    Discount15 = 0.15
 }

@@ -1,9 +1,122 @@
-<h1>{{StoreName}}</h1>
+<h1>{{StoreName | uppercase}}</h1>
 
 <br>
 
 <img [src]="StoreLogo" alt="">
 
+
+<br>
+<div *ngIf="Discount != 'No Discount';then noDiscountDisplay;else discountDisplay"></div>
+<ng-template #noDiscountDisplay>
+    <h3>We offer an explicit discount of {{Discount | percent}}.</h3> 
+</ng-template>
+<ng-template #discountDisplay>
+    <h3>There is {{Discount}} right now.</h3> 
+</ng-template>
+<br>
+<br>
+<input type="text" [(ngModel)]="ClientName">
+<br>
+<label for=""><b> Client name is <em>{{ClientName | uppercase}}</em></b></label> 
+
+
+<br>
 <br>
 
-<h3>We offer an explicit discount of {{Discount}}.</h3>
+<div *ngFor="let item in CategoryList" ></div>
+<select name="catigoryList" id="catigoryList">
+    <option value="" disabled selected>Select a category</option>
+    <option value="">{{CategoryList[0].Name}}</option>
+    <option value="">{{CategoryList[1].Name}}</option>
+    <option value="">Others</option>
+</select>
+<br>
+<br>
+
+<!-- Option 1 -->
+<div *ngFor="let item in CategoryList"></div>
+        <table *ngIf="this.viewTable" class="table table-striped" #tableOfContents style="text-align: center;">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Image</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">{{ProductList[0].ID}}</th>
+                <td>{{ProductList[0].Name}}</td>
+                <td>{{ProductList[0].Quantity}}</td>
+                <td>{{ProductList[0].Price}}</td>
+                <td><img src="{{ProductList[0].img}}" alt="" style="height: 150px;"></td>
+                
+            </tr>
+            <tr>
+                <th scope="row">{{ProductList[1].ID}}</th>
+                <td>{{ProductList[1].Name}}</td>
+                <td>{{ProductList[1].Quantity}}</td>
+                <td>{{ProductList[1].Price}}</td>
+                <td><img src="{{ProductList[1].img}}" alt="" style="height: 150px;"></td>
+            </tr>
+            </tbody>
+        </table>
+  
+<br>
+
+<!-- Option 2 -->
+
+<!-- <div *ngIf="this.viewDiv; then visibleTag , else table"></div>
+        <ng-template #table>
+        <div *ngFor="let item in CategoryList"></div>
+        <table class="table table-striped" #tableOfContents style="text-align: center;">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Image</th>
+                <th scope="col">Purchas</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">{{ProductList[0].ID}}</th>
+                <td>{{ProductList[0].Name}}</td>
+                <td>{{ProductList[0].Quantity}}</td>
+                <td>{{ProductList[0].Price}}</td>
+                <td><img src="{{ProductList[0].img}}" alt="" style="height: 150px;"></td>
+                <td><button (click)="showDiv()">Buy</button></td>
+            </tr>
+            <tr>
+                <th scope="row">{{ProductList[1].ID}}</th>
+                <td>{{ProductList[1].Name}}</td>
+                <td>{{ProductList[1].Quantity}}</td>
+                <td>{{ProductList[1].Price}}</td>
+                <td><img src="{{ProductList[1].img}}" alt="" style="height: 150px;"></td>
+                <td><button (click)="showDiv()">Buy</button></td>
+            </tr>
+            
+            </tbody>
+        </table>
+        </ng-template> -->
+
+
+<button (click)="showTable()">Show and hide</button>
+
+
+<br>
+<ng-template #visibleTag>
+    <h3>Thanks Mr.{{ClientName | uppercase}} for purchasing from {{StoreName}}</h3>
+</ng-template>
+
+<br>
+<br>
+
+
+
+
+

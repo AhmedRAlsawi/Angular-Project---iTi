@@ -3,11 +3,15 @@ import { DiscountOffers } from '../Shared Classes and types/DiscountOffers';
 import { ICategory } from '../Shared Classes and types/ICategory';
 import { IProduct } from '../Shared Classes and types/IProduct';
 
+
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
+
+
 export class ProductComponent implements OnInit {
 
   Discount : DiscountOffers;
@@ -17,6 +21,25 @@ export class ProductComponent implements OnInit {
   CategoryList :ICategory[];
   ClientName : string;
   IsPurchased:boolean;
+  viewTable:boolean=true;
+  viewDiv :boolean=false;
+
+  showTable() {
+    if (this.viewTable)
+    {
+      this.viewTable = false;
+    }
+    else 
+    {
+      this.viewTable = true;
+    }
+  }
+
+  showDiv()
+  {
+    this.viewDiv = true;
+  }
+
 
   constructor() {
     this.Discount = DiscountOffers.Discount15,
@@ -51,7 +74,7 @@ export class ProductComponent implements OnInit {
         Name: "Home Appliance",
       }
     ],
-    this.ClientName = "Ahmed",
+    this.ClientName = "",
     this.IsPurchased = true;
 
     }
@@ -59,5 +82,4 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
