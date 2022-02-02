@@ -35,7 +35,7 @@
 
 <!-- Option 1 -->
 <div *ngFor="let item in CategoryList"></div>
-        <table *ngIf="this.viewTable" class="table table-striped" #tableOfContents style="text-align: center;">
+        <table *ngIf="this.IsPurchased" class="table table-striped" #tableOfContents style="text-align: center;">
             <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -64,11 +64,12 @@
             </tbody>
         </table>
   
+<!-- Option 1 -->
 <br>
 
 <!-- Option 2 -->
 
-<!-- <div *ngIf="this.viewDiv; then visibleTag , else table"></div>
+<!-- <div *ngIf="this.IsPurchased; then table , else visibleTag"></div>
         <ng-template #table>
         <div *ngFor="let item in CategoryList"></div>
         <table class="table table-striped" #tableOfContents style="text-align: center;">
@@ -104,7 +105,7 @@
         </table>
         </ng-template> -->
 
-
+<!-- Option 2 -->
 <button (click)="showTable()">Show and hide</button>
 
 

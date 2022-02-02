@@ -20,24 +20,23 @@ export class ProductComponent implements OnInit {
   ProductList :IProduct[];
   CategoryList :ICategory[];
   ClientName : string;
-  IsPurchased:boolean;
-  viewTable:boolean=true;
-  viewDiv :boolean=false;
+  IsPurchased:boolean=false;
+  
 
   showTable() {
-    if (this.viewTable)
+    if (this.IsPurchased)
     {
-      this.viewTable = false;
+      this.IsPurchased = false;
     }
     else 
     {
-      this.viewTable = true;
+      this.IsPurchased = true;
     }
   }
 
   showDiv()
   {
-    this.viewDiv = true;
+    this.IsPurchased = false;
   }
 
 
