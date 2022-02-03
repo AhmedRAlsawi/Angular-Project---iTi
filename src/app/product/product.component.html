@@ -43,27 +43,31 @@
                 <th scope="col">Quantity</th>
                 <th scope="col">Price</th>
                 <th scope="col">Image</th>
+                <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">{{ProductList[0].ID}}</th>
-                <td>{{ProductList[0].Name}}</td>
-                <td>{{ProductList[0].Quantity}}</td>
-                <td>{{ProductList[0].Price}}</td>
-                <td><img src="{{ProductList[0].img}}" alt="" style="height: 150px;"></td>
-                
-            </tr>
-            <tr>
-                <th scope="row">{{ProductList[1].ID}}</th>
-                <td>{{ProductList[1].Name}}</td>
-                <td>{{ProductList[1].Quantity}}</td>
-                <td>{{ProductList[1].Price}}</td>
-                <td><img src="{{ProductList[1].img}}" alt="" style="height: 150px;"></td>
+            <tr *ngFor="let product of ProductList">
+                <th scope="row">{{product.ID}}</th>
+                <td>{{product.Name}}</td>
+                <td>{{product.Quantity}}</td>
+                <td>{{product.Price}}</td>
+                <td><img src="{{product.img}}" alt="" style="height: 150px;"></td>
+                <td><button class="btn btn-success" (click)="getProductById(product.ID)">View Details</button></td>
             </tr>
             </tbody>
         </table>
-  
+        <ng-container *ngIf="ShowCard">
+            <div class="card" style="width: 18rem;" >
+                <img class="card-img-top" src="{{Product.img}}" alt="Card image cap">
+                <div class="card-body">
+                <h5 class="card-title">{{Product.Name}}</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </ng-container>
+
 <!-- Option 1 -->
 <br>
 
@@ -85,11 +89,11 @@
             </thead>
             <tbody>
             <tr>
-                <th scope="row">{{ProductList[0].ID}}</th>
-                <td>{{ProductList[0].Name}}</td>
-                <td>{{ProductList[0].Quantity}}</td>
-                <td>{{ProductList[0].Price}}</td>
-                <td><img src="{{ProductList[0].img}}" alt="" style="height: 150px;"></td>
+                <th scope="row">{{product.ID}}</th>
+                <td>{{product.Name}}</td>
+                <td>{{product.Quantity}}</td>
+                <td>{{product.Price}}</td>
+                <td><img src="{{product.img}}" alt="" style="height: 150px;"></td>
                 <td><button (click)="showDiv()">Buy</button></td>
             </tr>
             <tr>
