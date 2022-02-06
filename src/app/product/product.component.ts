@@ -15,64 +15,52 @@ import { IProduct } from '../Shared Classes and types/IProduct';
 
 export class ProductComponent implements OnInit {
 
-  Discount : DiscountOffers;
-  StoreName :string;
-  StoreLogo :string;
-  CategoryList :ICategory[];
-  ClientName : string;
-  IsPurchased:boolean=false;
-  ProductList:IProduct[]=[];
+  IsPurchased:boolean=true;
+  ProductList:any[]=[];
   Product:any={};
   ShowCard:boolean=false;
-
+  errorMsg:any;
+  ClientName = "";
+  StoreName :string
+  
+  
   
 
-  showTable() {
-
-    this.IsPurchased = !this.IsPurchased
-    
-  }
-
-  showDiv()
-  {
-    this.IsPurchased = false;
-  }
-
-
-
+  
   constructor( private _productServices :ProductServicesService ) {
-    this.Discount = DiscountOffers.Discount15,
-    this.StoreName = "Electronic Shop",
-    this.StoreLogo ="../../assets/60635179_319082245657558_5022286901969682432_n.jpg",
-    this.CategoryList=
-    [
-      {
-        ID: 1122,
-        Name: "Electroincs",
-      },
-      {
-        ID: 1144,
-        Name: "Home Appliance",
-      }
-    ],
-    this.ClientName = "",
-    this.IsPurchased = true;
+    
 
     }
   
     renderValues()
-    {
-      this.ProductList = this._productServices.getAllProducts();
+    {      
+      this._productServices.getAllProducts().subscribe((data)=>
+      {
+        return this.ProductList = data; 
+      },
+      error=>
+      {
+        this.errorMsg=error; 
+      });
     }
 
     getProductById(id:any)
     {
       this.Product = this._productServices.getProductById(id);
       this.ShowCard= true;
-      console.log(id);
+      // console.log(id);
     }
     
- 
+    showTable() {
+
+      this.IsPurchased = !this.IsPurchased
+      
+    }
+  
+    showDiv()
+    {
+      this.IsPurchased = false;
+    }
 
   ngOnInit(): void {
     this.renderValues();

@@ -1,0 +1,34 @@
+<h1>{{StoreName | uppercase}}</h1>
+
+<br>
+
+<img [src]="StoreLogo" alt="">
+
+
+<br>
+<div *ngIf="Discount != 'No Discount';then noDiscountDisplay;else discountDisplay"></div>
+<ng-template #noDiscountDisplay>
+    <h3>We offer an explicit discount of {{Discount | percent}}.</h3> 
+</ng-template>
+<ng-template #discountDisplay>
+    <h3>There is {{Discount}} right now.</h3> 
+</ng-template>
+<br>
+<br>
+<input type="text" [(ngModel)]="ClientName">
+<br>
+<label for=""><b> Client name is <em>{{ClientName | uppercase}}</em></b></label> 
+
+
+<br>
+<br>
+
+<div *ngFor="let item in CategoryList" ></div>
+<select name="catigoryList" id="catigoryList">
+    <option value="" disabled selected>Select a category</option>
+    <option value="">{{CategoryList[0].Name}}</option>
+    <option value="">{{CategoryList[1].Name}}</option>
+    <option value="">Others</option>
+</select>
+<br>
+<br>

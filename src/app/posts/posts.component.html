@@ -1,0 +1,14 @@
+
+
+<div class="card container bg-dark" *ngFor="let post of postsList">
+    <div class="card-header bg-primary">
+        <h4>
+            {{"Post No. " +  post.id | json }}
+        </h4>
+    </div>
+    <div class="card-body text-light">
+      <h5 class="card-title">{{post.title | json}}</h5>
+      <p class="card-text">{{post.body | json}}</p>
+    </div>
+  </div>
+  
