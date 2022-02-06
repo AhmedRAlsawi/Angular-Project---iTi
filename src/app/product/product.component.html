@@ -1,4 +1,5 @@
 <!-- Option 1 -->
+<div class="container">
 <div *ngFor="let item in CategoryList"></div>
         <table *ngIf="this.IsPurchased" class="table table-striped" #tableOfContents style="text-align: center;">
             <thead>
@@ -23,7 +24,7 @@
             </tbody>
         </table>
         <ng-container *ngIf="ShowCard">
-            <div class="card" style="width: 18rem;" >
+            <div class="card" style="width: 12rem;" >
                 <img class="card-img-top" src="{{Product.img}}" alt="Card image cap">
                 <div class="card-body">
                 <h5 class="card-title">{{Product.Name}}</h5>
@@ -75,7 +76,7 @@
         </ng-template> -->
 
 <!-- Option 2 -->
-<button (click)="showTable()">Show and hide</button>
+<button (click)="showTable()" class="btn btn-success">Show and hide</button>
 
 
 <br>
@@ -86,3 +87,12 @@
 <!-- <div>
     {{errorMsg}}
 </div> -->
+<br>
+<button class="btn btn-primary" (click)="goToWith()">Product with Disc.</button>
+&nbsp;
+<button class="btn btn-primary" (click)="goToWithout()">Products without Disc.</button>
+<br>
+<br>
+<router-outlet></router-outlet>
+</div>
+<br>

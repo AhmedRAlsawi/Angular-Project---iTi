@@ -1,0 +1,48 @@
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label>Name :</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Email :</label>
+            <input type="email" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Mobile No. :</label>
+            <input type="tel" class="form-control">
+        </div>
+        <div class="form-group">
+            <select class="custom-select">
+                <option selected>
+                    I'm Interested In
+                </option>
+                <option *ngFor="let topic of topics">
+                    {{topic}}
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label>Time selection</label>
+            <div class="form-check">
+                <input type="radio" value="eveninig" class="form-
+            check-input" name="timeSelection">
+                <label class="form-check-label">Eveninig (4PM – 10PM)</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" value="Morning" class="form-check-
+            input" name="timeSelection">
+                <label class="form-check-label">Morning (9AM – 2PM)</label>
+            </div>
+        </div>
+        <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-
+                    input">
+            <label class="form-check-label">
+                Send me new offers
+            </label>
+        </div>
+        <input type="submit" class="btn btn-success" value="Register">
+    </form>
+</div>
+<br>

@@ -13,6 +13,10 @@ import { UsersComponent } from './users/users.component';
 import { PostsComponent } from './posts/posts.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { ProductsWithDiscComponent } from './products-with-disc/products-with-disc.component';
+import { ProductsWithoutDiscComponent } from './products-without-disc/products-without-disc.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { HomePageComponent } from './home-page/home-page.component';
     UsersComponent,
     PostsComponent,
     PageNotFoundComponent,
-    HomePageComponent
+    HomePageComponent,
+    ProductsWithDiscComponent,
+    ProductsWithoutDiscComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductServicesService } from '../services/product-services.service';
 import { DiscountOffers } from '../Shared Classes and types/DiscountOffers';
 import { ICategory } from '../Shared Classes and types/ICategory';
@@ -27,10 +28,11 @@ export class ProductComponent implements OnInit {
   
 
   
-  constructor( private _productServices :ProductServicesService ) {
-    
-
-    }
+  constructor( 
+    private _productServices :ProductServicesService, 
+    private router:Router,
+    private activatedRoute:ActivatedRoute )
+     { }
   
     renderValues()
     {      
@@ -60,6 +62,17 @@ export class ProductComponent implements OnInit {
     showDiv()
     {
       this.IsPurchased = false;
+    }
+
+
+    goToWith()
+    {
+      this.router.navigate(["discount"],{relativeTo:this.activatedRoute})
+    }
+
+    goToWithout()
+    {
+      this.router.navigate(["withoutdiscount"],{relativeTo:this.activatedRoute})
     }
 
   ngOnInit(): void {
